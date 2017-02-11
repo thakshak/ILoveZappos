@@ -14,4 +14,4 @@ Used **Retrofit2 API** to handle the REST Requests.
 
 Created the App Icon modifying Zappos logo which displays I♥Zappos.
 
-You can download my app (here)[https://github.com/thakshak/ILoveZappos/blob/master/app/app-release.apk?raw=true]
+You can download my app [here](https://github.com/thakshak/ILoveZappos/blob/master/app/app-release.apk?raw=true)
