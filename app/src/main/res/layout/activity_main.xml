@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="p"
+            type="com.example.android.ilovezappos.Product" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.example.android.ilovezappos.MainActivity">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/cartButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/fab_margin"
+            android:onClick="animateFab"
+            android:paddingBottom="16dp"
+            android:src="@drawable/ic_add_shopping_cart_black_24dp"
+            android:tint="@android:color/white"
+            app:layout_anchorGravity="bottom|end" />
+
+        <ScrollView
+            android:id="@+id/my_product_page"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundLight"
+
+            android:visibility="invisible">
+
+            <LinearLayout
+                style="@style/layoutStyle"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/pimage"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:background="@color/backgroundLight"
+                    android:contentDescription="Product Image"
+                    android:elevation="4dp"
+                    android:paddingBottom="8dp"
+                    app:error="@{@drawable/zapoos}"
+                    app:imageUrl="@{p.thumbnailImageUrl}" />
+
+                <LinearLayout
+                    style="@style/layoutStyle"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/backgroundLight"
+                    android:elevation="4dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/ProductName"
+                        style="@style/textStyle"
+                        android:text="@{p.productName}"
+                        android:textSize="20sp" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:clickable="false"
+                        android:numStars="5"
+                        android:paddingTop="8dp"
+                        android:stepSize="1" />
+
+                    <TextView
+                        android:id="@+id/Price"
+                        style="@style/textStyle"
+                        android:text="Price"
+                        android:textColor="@android:color/holo_green_light"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:elevation="4dp">
+
+                        <TextView
+                            android:id="@+id/DollarPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="8dp"
+                            android:text="@{p.price}"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/OriginalPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="8dp"
+                            android:text="@{p.originalPrice}"
+                            android:textColor="@android:color/holo_orange_light"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/PercentOff"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="8dp"
+                            android:text='@{p.percentOff+" off"}'
+                            android:textColor="@android:color/holo_green_light"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/backgroundLight"
+                    android:elevation="4dp"
+                    android:orientation="vertical"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp">
+
+                    <TextView
+                        android:id="@+id/ProductDetails"
+                        style="@style/textStyle"
+                        android:text="Product Details"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ProductID"
+                        style="@style/textStyle"
+                        android:text='@{"Product ID: "+p.productId}'
+                        android:textSize="8sp" />
+
+                    <TextView
+                        android:id="@+id/StyleID"
+                        style="@style/textStyle"
+                        android:text='@{"Style ID: "+p.styleId}'
+                        android:textSize="8sp" />
+
+                    <TextView
+                        android:id="@+id/ColorID"
+                        style="@style/textStyle"
+                        android:paddingBottom="8dp"
+                        android:text='@{"Color ID: "+p.colorId}'
+                        android:textSize="8sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/layoutStyle"
+                    android:background="@color/backgroundLight"
+                    android:elevation="4dp"
+                    android:orientation="vertical"
+                    android:paddingBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/ProductRnR"
+                        style="@style/textStyle"
+                        android:text="Product Reviews"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ProductRating"
+                        style="@style/textStyle"
+                        android:text="*****"
+                        android:textSize="8sp" />
+
+                    <TextView
+                        android:id="@+id/ProductReviews"
+                        style="@style/textStyle"
+                        android:text="Nothing to show"
+                        android:textSize="8sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
